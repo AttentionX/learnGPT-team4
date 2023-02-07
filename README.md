@@ -17,7 +17,7 @@
 
 [hint 1 ](https://www.facebook.com/groups/TensorFlowKR/posts/1580740202267032)| 
 --- | 
-<img width="692" alt="image" src="https://user-images.githubusercontent.com/56193069/217115798-8bbc5eab-9888-42ea-9215-09fb40bd8939.png"> 
+<img width="692" alt="image" src="https://user-images.githubusercontent.com/56193069/217115798-8bbc5eab-9888-42ea-9215-09fb40bd8939.png"> |
 
 
 
