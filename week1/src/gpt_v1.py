@@ -12,8 +12,7 @@ class GPTVer1(nn.Module):
         self.token_embedding_table = nn.Embedding(vocab_size, vocab_size)
         self.block_size = block_size
 
-    def forward(self, idx: torch.Tensor, targets: Optional[torch.Tensor] = None) -> \
-            tuple[torch.Tensor, Optional[torch.Tensor]]:
+    def forward(self, idx: torch.Tensor, targets: Optional[torch.Tensor] = None):
         # idx and targets are both (B, T) tensor of integers
         logits = self.logits(idx)  # (B, T) ->  (B, T, C)
         if targets is None:
@@ -31,9 +30,21 @@ class GPTVer1(nn.Module):
     @torch.no_grad()
     def generate(self, idx: torch.Tensor, max_new_tokens: int) -> torch.Tensor:
         # idx is (B, T) array of indices in the current context
+        # return idx
         for _ in range(max_new_tokens):
             # --- TODO 1 --- #
-            idx = ...
-            raise NotImplementedError
+            
+            logits, loss = self.forward(idx) # logits (B, T, C)
+            
+            # Bigram model, so we need to get the last token
+            logits = logits[:, -1, :]
+            
+            prediction = F.softmax(logits, dim=1)
+            
+            predicted_token = torch.multinomial(prediction, 1)
+            
+            idx = torch.concat((idx, predicted_token), dim=1)
+            
+            
             # -------------- #
         return idx

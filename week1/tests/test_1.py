@@ -13,4 +13,5 @@ def test_gpt_v1_generates_text_given_a_context():
     train(lm)
     was = generate(lm, "The quick brown fox jumps over the lazy", 30)
     expected = "The quick brown fox jumps over the lazy:\nHAGdirdo sick's q-Whe,\n\nANs "
+    print(was)
     assert expected == was
