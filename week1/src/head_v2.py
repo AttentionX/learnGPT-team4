@@ -9,7 +9,8 @@ class HeadVer2:
         """
         # --- TODO 3 --- #
         # vectorize HeadVer1.__call__()
-        out = ...
-        raise NotImplementedError
+        wei = torch.tril(torch.ones(x.shape[1], x.shape[1]))
+        wei = wei / wei.sum(1, keepdim=True)
+        out = wei @ x
         # ------------ #
         return out
