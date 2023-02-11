@@ -10,7 +10,10 @@ class HeadVer1:
         B, T, C = x.shape
         # --- TODO 2 --- #
         # use nested for loops to take an average of the past into account
-        out = ...
-        raise NotImplementedError
+        out = torch.zeros((B,T,C))
+        for b in range(B):
+            for t in range(T):
+                prev = x[b,:t+1]
+                out[b,t] = torch.mean(prev, dim=0)
         # -------------- #
         return out

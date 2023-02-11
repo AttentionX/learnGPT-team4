@@ -22,4 +22,5 @@ def test_gpt_v2_and_head_v1_generates_text_given_a_context():
     train(lm)  # may take a while
     expected = "The quick brown fox jumps over the lazyvee\nd ont phour teo, nwch aydo"
     was = generate(lm, "The quick brown fox jumps over the lazy", 30)
+    print(was)
     assert expected == was
