@@ -20,8 +20,8 @@ class GPTVer2(GPTVer1):
         :return: logits (B, T, |V|)
         """
         # --- TODO 2 --- #
-        logits = self.token_embedding_table(idx) # (B, T) -> (B, T, C)
-        logits = self.head(logits) # (B, T, C) -> (B, T, C)
-        logits = self.lm_head(logits) # (B, T, C) -> (B, T, |V|)
+        emb = self.token_embedding_table(idx) # (B, T) -> (B, T, C)
+        x = self.head(emb) # (B, T, C) -> (B, T, C)
+        logits = self.lm_head(x) # (B, T, C) -> (B, T, |V|)
         # -------------- #
         return logits

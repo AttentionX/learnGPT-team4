@@ -18,7 +18,8 @@ class HeadVer3:
         tril = torch.tril(torch.ones(x.shape[1], x.shape[1]))
         wei = torch.zeros((T,T))
         wei = wei.masked_fill(tril == 0, float('-inf'))
-        self.wei = F.softmax(wei, dim=1)
+        wei = F.softmax(wei, dim=1)
         out = wei @ x
         # -------------- #
+        self.wei = wei.detach()
         return out

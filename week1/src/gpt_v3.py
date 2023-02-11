@@ -12,8 +12,13 @@ class GPTVer3(GPTVer2):
         B, T = idx.shape
         C = self.token_embedding_table.weight.shape[1]
         # --- TODO 6 --- #
-        logits = ...
-        raise NotImplementedError
+        # logits = ...
+        x = self.token_embedding_table(idx)
+        pos_emb = self.pos_encodings(T, C)
+        x = x + pos_emb
+        x = self.head(x)
+        
+        logits = self.lm_head(x)
         # ------------- #
         return logits
 
@@ -25,7 +30,6 @@ class GPTVer3(GPTVer2):
         :return: (L, H)
         """
         # --- TODO 6 --- #
-        encodings = ...
-        raise NotImplementedError
+        
         # -------------- #
         return encodings

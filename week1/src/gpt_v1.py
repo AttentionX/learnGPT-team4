@@ -33,8 +33,9 @@ class GPTVer1(nn.Module):
         # return idx
         for _ in range(max_new_tokens):
             # --- TODO 1 --- #
+            last_idx = idx[:, -self.block_size:]
             
-            logits, loss = self.forward(idx) # logits (B, T, C)
+            logits, _ = self(last_idx) # logits (B, T, C)
             
             # Bigram model, so we need to get the last token
             logits = logits[:, -1, :]
