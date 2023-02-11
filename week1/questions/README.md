@@ -2,6 +2,8 @@
 
 > `gpt_v1` & `gpt_2` do not preserve orders  - why?
 
+Positional Encoding is not implemented
+
 ### `test_6.py` (2)?
 
 > pos_encodings is designed such that each pos is different - how?
@@ -30,3 +32,5 @@ $$$$ \lVert PE(0) - PE(\pi) \rVert = 2 $$$$
 >  `gpt_v3` does preserve order  - how?
 
 -  what changes did you make to `token_emb`?
+
+gpt_v3 preserves order by taking into account the positional embedding in the context tensor. The positional embedding is added to the token_emb to instill the positional information regarding each token. 
