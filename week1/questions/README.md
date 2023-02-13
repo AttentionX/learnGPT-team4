@@ -1,3 +1,5 @@
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+
 ### `test_6.py` (1)?
 
 > `gpt_v1` & `gpt_2` do not preserve orders  - why?
