@@ -30,6 +30,10 @@ class GPTVer3(GPTVer2):
         :return: (L, H)
         """
         # --- TODO 6 --- #
-        
+        positions = torch.arange(block_size).view(-1, 1)  # -> (L)
+        freqs = 0.0001 ** (torch.arange(embed_size)[::2] / embed_size).view(1, -1)  # (,) -> (H)
+        encodings = torch.zeros(size=(block_size, embed_size))  # (L, H)
+        encodings[:, ::2] = torch.sin(freqs * positions)  # evens = sin
+        encodings[:, 1::2] = torch.cos(freqs * positions)
         # -------------- #
         return encodings
