@@ -10,7 +10,7 @@ Positional Encoding is not implemented
 
 > pos_encodings is designed such that each pos is different - how?
   
-With position integer *pos*, create a vector d which is a sequence of sin(pos/C) and cos(pos/C) where C is a $ n^{2i/d} $ where n is a scalar (10000) and i is the column indices from 0 to d/2
+With position integer *pos*, create a vector d which is a sequence of sin(pos/C) and cos(pos/C) where C is a $n^{2i/d}$ where n is a scalar (10000) and i is the column indices from 0 to d/2
 
 ### `test_6.py` (3)?
 
@@ -21,12 +21,12 @@ PE encodes an integer to a d dimensional vector but due to the usage of sin and 
 For example,  
 Assuming 
 $$PE(pos)[0] = sin(pos) $$, and  
-$$ PE(pos)[1] = cons(pos) $$  
+$$PE(pos)[1] = cons(pos) $$  
 Then the l2 norm would be the same as 1,  
-$$ \lVert PE(0) \rVert == \lVert PE(\frac{\pi}{2}) \rVert == \lVert PE(\pi) \rVert == 1 $$  
+$$\lVert PE(0) \rVert == \lVert PE(\frac{\pi}{2}) \rVert == \lVert PE(\pi) \rVert == 1 $$  
 While the differences are  
-$$ \lVert PE(0) - PE(\frac{\pi}{2}) \rVert = \sqrt{2}  $$  
-$$ \lVert PE(0) - PE(\pi) \rVert = 2 $$
+$$\lVert PE(0) - PE(\frac{\pi}{2}) \rVert = \sqrt{2}  $$  
+$$\lVert PE(0) - PE(\pi) \rVert = 2 $$
 
 
 ### `test_6.py` (4)?
