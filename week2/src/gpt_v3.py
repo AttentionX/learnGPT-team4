@@ -1,6 +1,7 @@
 import torch
 from typing import Optional
 from torch.nn import functional as F
+from typing import Tuple
 
 
 class GPTVer3(torch.nn.Module):
@@ -18,7 +19,7 @@ class GPTVer3(torch.nn.Module):
         self.lm_head = torch.nn.Linear(embed_size, vocab_size)  # (C, |V|)
 
     def forward(self, idx: torch.Tensor, targets: Optional[torch.Tensor] = None) \
-            -> tuple[torch.Tensor, Optional[torch.Tensor]]:
+            -> Tuple[torch.Tensor, Optional[torch.Tensor]]:
         """
         :param idx: (B, T) tensor of integers
         :param targets: (B, T) tensor of integers

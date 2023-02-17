@@ -18,7 +18,7 @@ class BlockVer3(BlockVer2):
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         # --- TODO 3-2 --- #
-        raise NotImplementedError
-        x = ...
+        x = x + self.head(self.ln1(x)) # (B, T, C) -> (B, T, C)
+        x = x + self.ffwd(self.ln2(x)) # (B, T, C) -> (B, T, C)
         # ---------------- #
         return x
